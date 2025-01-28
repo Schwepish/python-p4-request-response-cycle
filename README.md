@@ -170,11 +170,11 @@ the right view from a URL. The URL map is just as it sounds: a dictionary that
 maps URLs to the views that serve the client at those URLs. Every time we use
 the `@app.route` decorator, a new mapping is added to the URL map.
 
-We can view the URL map for ourselves in the Flask shell. Run `flask shell`
-from the `server/` directory for this lesson and enter the following:
+We can view the URL map for ourselves in an `ipdb` shell. Run `python debug.py`
+from the base directory for this lesson and enter the following:
 
 ```console
-$ app.url_map
+$ ipdb> app.url_map
 # => Map([<Rule '/static/<filename>' (GET, HEAD, OPTIONS) -> static>,
  <Rule '/' (GET, HEAD, OPTIONS) -> index>])
 ```
@@ -282,7 +282,8 @@ received by the server, but that the server has not done anything about it yet.
 We could also return 204 if there were no content on the page, or 404 if the URL
 was not found.
 
-_For more on HTTP status codes, visit the [Mozilla documentation][moz_http_status]._
+_For more on HTTP status codes, visit the [Mozilla documentation][
+moz_http_status]._
 
 There is a third, optional argument that can be added in to create headers for
 our response. This is simply a dictionary with keys for the header attributes
